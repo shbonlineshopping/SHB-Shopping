@@ -1,1 +1,426 @@
+সকোলের অবগতির জন্য জানানো যাচ্ছাছে যে এই ওয়েবসাইটটি শুধু ডেমো এখান থেকে এখন কোনো পোডাক্ট অর্ডার  দিলে পাবেন নাহ এই নামে একটি ওয়েব সাইট খুলার আইডিয়া রয়েছে। তাই একটা ডেমো ওয়েবসাইট খুলেছি চালু করার পরে আমাদে SHB Shopping Zone পেইজ এ যানিয়ে দেওয়া হবে এখন ও কোনো  যায়গায় কার্যক্রম চালু হয় নাই ছো কেউ আমাদের এই ওয়েবসাইট বা ফেইজবুক পেইজটাকে ভূয়া বলবেন নাহ আমাদের
+কার্যক্রম  চালু হলে সবাইকে জানিয়ে দেওয়া হবে আবাদতে ডেমো হিসাবে  ওয়েবসাইটে আছে সকোলকে ধন্যবাদ। 
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHB Shopping Zone | Online Shopping</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
 
+        body {
+            background-color: #f4f4f6;
+            color: #333;
+        }
+
+        /* হেডার ও লোগো এরিয়া */
+        .header {
+            background-color: #f57224;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 12px 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 26px;
+            font-weight: 800;
+            margin-bottom: 2px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .sub-logo {
+            color: #fff0e5;
+            font-size: 13px;
+            font-style: italic;
+            margin-bottom: 12px;
+            display: block;
+            font-weight: bold;
+        }
+
+        .search-box {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            background: #fff;
+            border-radius: 25px;
+            overflow: hidden;
+            border: 2px solid #fff;
+        }
+
+        .search-box input {
+            width: 80%;
+            padding: 10px 15px;
+            border: none;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .search-box button {
+            width: 20%;
+            background: #252525;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .search-box button:hover {
+            background: #000;
+        }
+
+        /* আকর্ষণীয় প্রিমিয়াম ব্যানার (অফার ছাড়া) */
+        .hero-banner {
+            max-width: 1200px;
+            margin: 15px auto;
+            padding: 0 10px;
+        }
+
+        .banner-box {
+            background: linear-gradient(135deg, #f57224, #d65d18);
+            padding: 35px 20px;
+            border-radius: 12px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(245, 114, 36, 0.2);
+        }
+
+        .banner-box h2 {
+            font-size: 26px;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .banner-box p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        /* ক্যাটাগরি গ্রিড */
+        .categories-section {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 10px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #222;
+            border-left: 5px solid #f57224;
+            padding-left: 10px;
+            margin-top: 35px;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .category-item {
+            background: #fff;
+            padding: 15px 5px;
+            text-align: center;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: bold;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid #eee;
+        }
+
+        .category-item:hover {
+            color: #f57224;
+            background-color: #fff4ee;
+            transform: translateY(-2px);
+            border-color: #f57224;
+        }
+
+        /* ডেমো প্রোডাক্ট সেকশন (পাশাপাশি ২টি করে ছবি) */
+        .products-section {
+            max-width: 1200px;
+            margin: 15px auto;
+            padding: 0 10px;
+            margin-bottom: 8px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .product-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            background: #fdfdfd;
+        }
+
+        .product-info {
+            padding: 10px;
+        }
+
+        .product-title {
+            font-size: 13px;
+            color: #444;
+            height: 36px;
+            overflow: hidden;
+            margin-bottom: 6px;
+            line-height: 1.4;
+            font-weight: 500;
+        }
+
+        .product-color-badge {
+            display: inline-block;
+            font-size: 11px;
+            background: #f0f0f0;
+            color: #666;
+            padding: 2px 6px;
+            border-radius: 3px;
+            margin-bottom: 8px;
+        }
+
+        .product-price {
+            color: #f5574;
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .buy-button {
+            width: 100%;
+            background-color: #f57224;
+            color: white;
+            border: none;
+            padding: 8px;
+            font-size: 13px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .buy-button:hover {
+            background-color: #d65d18;
+        }
+
+        /* ফুটার */
+        .footer {
+            background-color: #1e1e30;
+            color: #b5b5c3;
+            text-align: center;
+            padding: 20px;
+            font-size: 13px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="navbar">
+            <div class="logo">SHB Shopping Zone</div>
+            <span class="sub-logo">Online Shopping</span>
+            <div class="search-box">
+                <input type="text" placeholder="ভিন্ন কালার ও ডিজাইনের ৫০০+ পোশাক খুঁজুন...">
+                <button onclick="searchAlert()">খুঁজুন</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="hero-banner">
+        <div class="banner-box">
+            <h2>প্রিমিয়াম কোয়ালিটি অনলাইন কালেকশন</h2>
+            <p>আপনার পছন্দের নিখুঁত ও চমৎকার সব ডিজাইন এখন এক ক্লিকেই</p>
+        </div>
+    </div>
+
+    <div class="categories-section">
+        <div class="section-title">আমাদের ক্যাটাগরি সমূহ</div>
+        <div class="category-grid">
+            <div class="category-item" onclick="scrollToSection('tshirt-sec')">👕 টি-শার্ট</div>
+            <div class="category-item" onclick="scrollToSection('shirt-sec')">👔 শার্ট</div>
+            <div class="category-item" onclick="scrollToSection('trouser-sec')">👖 ট্রাউজার</div>
+            <div class="category-item" onclick="scrollToSection('threepiece-sec')">👗 থ্রি-পিস</div>
+            <div class="category-item" onclick="scrollToSection('saree-sec')">🥻 শাড়ি</div>
+            <div class="category-item" onclick="scrollToSection('baby-sec')">👶 বেবি কালেকশন</div>
+        </div>
+    </div>
+
+    <div class="products-section">
+        
+        <div id="tshirt-sec" class="section-title">ভিন্ন ডিজাইন ও রঙের টি-শার্ট কালেকশন</div>
+        <div class="product-grid" id="tshirt-grid"></div>
+
+        <div id="shirt-sec" class="section-title">এক্সক্লুসিভ মেনস শার্ট কালেকশন</div>
+        <div class="product-grid" id="shirt-grid"></div>
+
+        <div id="trouser-sec" class="section-title">স্টাইলিশ ও কমফোর্ট ট্রাউজার কালেকশন</div>
+        <div class="product-grid" id="trouser-grid"></div>
+
+        <div id="threepiece-sec" class="section-title">লেডিস গর্জিয়াস থ্রি-পিস ডিজাইন</div>
+        <div class="product-grid" id="threepiece-grid"></div>
+
+        <div id="saree-sec" class="section-title">ঐতিহ্যবাহী লাক্সারি শাড়ি গ্যালারি</div>
+        <div class="product-grid" id="saree-grid"></div>
+
+        <div id="baby-sec" class="section-title">কিডস ও কালারফুল বেবি কালেকশন</div>
+        <div class="product-grid" id="baby-grid"></div>
+
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2026 SHB Shopping Zone | Online Shopping. সর্বস্বত্ব সংরক্ষিত।</p>
+    </div>
+
+    <script>
+        // বিভিন্ন ডিজাইনের আসল ও হাই-কোয়ালিটি ছবি ব্যাংক
+        const imagesBank = {
+            tshirt: [
+                "https://images.unsplash.com/photo-1521572267360-ee0c2909d418?w=40&q=80",
+                "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=400&q=80",
+                "https://images.unsplash.com/photo-1562157873-818bc0726f68?w=400&q=80",
+                "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=400&q=80",
+                "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=400&q=80",
+                "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=400&q=80",
+                "https://images.unsplash.com/photo-1527719327859-c6ce80353573?w=400&q=80",
+                "https://images.unsplash.com/photo-1554568218-0f1715e72254?w=400&q=80"
+            ],
+            shirt: [
+                "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&q=80",
+                "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=400&q=80",
+                "https://images.unsplash.com/photo-1620012253295-c05518e993be?w=400&q=80",
+                "https://images.unsplash.com/photo-1603252109303-2751441dd157?w=400&q=80",
+                "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?w=400&q=80",
+                "https://images.unsplash.com/photo-1578932750294-f5075e85f44a?w=400&q=80"
+            ],
+            trouser: [
+                "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=400&q=80",
+                "https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&q=80",
+                "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=400&q=80",
+                "https://images.unsplash.com/photo-1479064555552-3ef4979f8908?w=400&q=80",
+                "https://images.unsplash.com/photo-1517423738875-5ce310acd3da?w=400&q=80"
+            ],
+            threepiece: [
+                "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=400&q=80",
+                "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?w=400&q=80",
+                "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=400&q=80",
+                "https://images.unsplash.com/photo-1609357605129-26f69add5d6e?w=400&q=80",
+                "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400&q=80"
+            ],
+            saree: [
+                "https://images.unsplash.com/photo-1610030470298-2066faef65a4?w=400&q=80",
+                "https://images.unsplash.com/photo-1610030469668-93535c17b6b3?w=400&q=80",
+                "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=400&q=80",
+                "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?w=400&q=80"
+            ],
+            baby: [
+                "https://images.unsplash.com/photo-1519457431-44ccd64a579b?w=400&q=80",
+                "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=400&q=80",
+                "https://images.unsplash.com/photo-1604467707321-70d5ac45adda?w=400&q=80",
+                "https://images.unsplash.com/photo-1503919545889-aef636e10ad4?w=400&q=80"
+            ]
+        };
+
+        // কালার ভ্যারিয়েশন এবং টাইটেল ডেটা
+        const colors = ["লাল", "নীল", "কালো", "সাদা", "সবুজ", "হলুদ", "মেরুন", "নেভি ব্লু", "অ্যাশ", "গোলাপি", "অলিভ", "বেগুনি"];
+        const designs = ["প্রিমিয়াম প্রিন্ট", "ক্যাজুয়াল ক্লাসিক", "এক্সক্লুসিভ মেটেরিয়াল", "স্লিম-ফিট ট্রেন্ডি", "ট্রেডিশনাল বুটিক", "ডিজাইনার স্টাইল", "কমফোর্ট ফ্যাব্রিক"];
+
+        // ক্যাটাগরি ভিত্তিক বেইজ প্রাইস
+        const basePrices = { tshirt: 250, shirt: 580, trouser: 490, threepiece: 1050, saree: 1500, baby: 320 };
+        const categoryNames = { tshirt: "টি-শার্ট", shirt: "শার্ট", trouser: "ট্রাউজার", threepiece: "থ্রি-পিস", saree: "শাড়ি", baby: "বেবি ড্রেস" };
+
+        // ৫০০+ কালেকশন জেনারেট করার লুপ ফাংশন (প্রতি ক্যাটাগরিতে ৯০+ আইটেম)
+        function generateMassiveProducts(catKey, gridId) {
+            const grid = document.getElementById(gridId);
+            const imgs = imagesBank[catKey];
+            let html = '';
+
+            // প্রতিটি ক্যাটাগরিতে ৮৫-৯০ টি করে মোট ৫০০+ প্রোডাক্ট তৈরি হবে
+            for (let i = 1; i <= 85; i++) {
+                const randomImg = imgs[(i - 1) % imgs.length];
+                const randomColor = colors[i % colors.length];
+                const randomDesign = designs[i % designs.length];
+                
+                const title = `${randomDesign} ${categoryNames[catKey]} - কোড #${1000 + i}`;
+                const price = `৳ ${basePrices[catKey] + (i * 5)}`;
+                const colorLabel = `কালার: ${randomColor}`;
+
+                html += `
+                    <div class="product-card">
+                        <img src="${randomImg}" alt="Product Design">
+                        <div class="product-info">
+                            <div class="product-title">${title}</div>
+                            <span class="product-color-badge">${colorLabel}</span>
+                            <div class="product-price">${price}</div>
+                            <button class="buy-button" onclick="buyAlert('${title} (${colorLabel})')">অর্ডার করুন</button>
+                        </div>
+                    </div>
+                `;
+            }
+            grid.innerHTML = html;
+        }
+
+        // সাইট চালু হলেই ৫০০+ প্রোডাক্ট লোড হয়ে যাবে
+        window.onload = function() {
+            generateMassiveProducts('tshirt', 'tshirt-grid');
+            generateMassiveProducts('shirt', 'shirt-grid');
+            generateMassiveProducts('trouser', 'trouser-grid');
+            generateMassiveProducts('threepiece', 'threepiece-grid');
+            generateMassiveProducts('saree', 'saree-grid');
+            generateMassiveProducts('baby', 'baby-grid');
+        };
+
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function searchAlert() {
+            alert("অনুসন্ধান করা হচ্ছে... এটি একটি লাইভ ডেমো কালেকশন ওয়েবসাইট।");
+        }
+
+        function buyAlert(details) {
+            alert(`সফল হয়েছে!\n"${details}" এর অর্ডার রিকোয়েস্ট ডেমো সিস্টেমে জমা হয়েছে।`);
+        }
+    </script>
+</body>
+</html>
+
+```
